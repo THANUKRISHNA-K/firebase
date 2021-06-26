@@ -8,11 +8,15 @@
     <input type="text"  class="form-control"  placeholder="Enter Department"  [(ngModel)]="lst.dept">
     <input type="text"  class="form-control"  placeholder="Enter College"     [(ngModel)]="lst.college">
     <input type="text"  class="form-control"  placeholder="Enter Locality"    [(ngModel)]="lst.locality">
+    <input type="file"  class="form-control" (change)="upload($event)" accept=".png,.jpg" [(ngModel)]="filedata"/>
+    <button class="btn btn-success"  (click)="uploadImage()">Upload Image</button>
+    <br> <br>
     <button class="btn btn-primary" (click)="add()">add</button>
   </div>
   <div class="maincon">
     <table id="customers">
       <tr>
+       
         <th>NAME</th>
         <th>ROLLNO</th>
         <th>PHONE</th>
@@ -23,6 +27,7 @@
         <th></th>
       </tr>
       <tr *ngFor= "let item of data | paginate: {itemsPerPage:10, currentPage:p}; ">
+        
         <td>{{item.names|uppercase}}</td>
         <td>{{item.id}}</td>
         <td>{{item.phone}}</td>
@@ -30,8 +35,7 @@
         <td>{{item.dept|uppercase}}</td>
         <td>{{item.college|uppercase}}</td>
         <td>{{item.locality|uppercase}}</td>
-        <td><button class="btn btn-danger" >Delete</button></td>
-
+        <td><button class="btn btn-danger" (click)="remov(item.key)" >Delete</button></td>
       </tr>
       <tr >
         <th  colspan="8"><div  class="pagnum"><pagination-controls (pageChange)="p=$event"></pagination-controls></div></th>
