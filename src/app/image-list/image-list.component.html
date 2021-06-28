@@ -1,0 +1,26 @@
+<table id="gallery" *ngIf="imageList">
+    
+    <tr *ngFor="let i of rowindex">
+        <td>
+          <div id="add" class="imagebox" *ngIf="i==0">
+            <a [routerLink]="['/home/upload']"> Insert New Image</a>
+          </div>
+          <div class="imagebox" *ngIf="i!=0">
+            <img [src]="imageList[3*i-1].imageUrl" class="img-fluid">
+           
+          </div>
+        </td>
+        <td *ngIf="imageList[3*i]">
+          <div class="imagebox">
+            <img [src]="imageList[3*i].imageUrl" class="img-fluid">
+            
+          </div>
+        </td>
+        <td *ngIf="imageList[3*i+1]">
+          <div class="imagebox">
+            <img [src]="imageList[3*i+1].imageUrl" class="img-fluid">
+           
+          </div>
+        </td>
+      </tr>
+</table>

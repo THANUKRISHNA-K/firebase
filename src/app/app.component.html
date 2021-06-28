@@ -1,48 +1,31 @@
-<div class="nav"><a>FIREBASE</a></div>
-<div class="main">
-  <div class="sidenavn">
-    <input type="text"  class="form-control"  placeholder="Enter Name"        [(ngModel)]="lst.names">
-    <input type="text"  class="form-control"  placeholder="Enter Rollno"      [(ngModel)]="lst.id">
-    <input type="text"  class="form-control"  placeholder="Enter Phoneno"     [(ngModel)]="lst.phone">
-    <input type="text"  class="form-control"  placeholder="Enter E-Mail"      [(ngModel)]="lst.email">
-    <input type="text"  class="form-control"  placeholder="Enter Department"  [(ngModel)]="lst.dept">
-    <input type="text"  class="form-control"  placeholder="Enter College"     [(ngModel)]="lst.college">
-    <input type="text"  class="form-control"  placeholder="Enter Locality"    [(ngModel)]="lst.locality">
-    <input type="file"  class="form-control" (change)="upload($event)" accept=".png,.jpg" [(ngModel)]="filedata"/>
-    <button class="btn btn-success"  (click)="uploadImage()">Upload Image</button>
-    <br> <br>
-    <button class="btn btn-primary" (click)="add()">add</button>
-  </div>
-  <div class="maincon">
-    <table id="customers">
-      <tr>
-       
-        <th>NAME</th>
-        <th>ROLLNO</th>
-        <th>PHONE</th>
-        <th>E-MAIL</th>
-        <th>DEPARTMENT</th>
-        <th>COLLEGE</th>
-        <th>LOCALITY</th>
-        <th></th>
-      </tr>
-      <tr *ngFor= "let item of data | paginate: {itemsPerPage:10, currentPage:p}; ">
-        
-        <td>{{item.names|uppercase}}</td>
-        <td>{{item.id}}</td>
-        <td>{{item.phone}}</td>
-        <td>{{item.email}}</td>
-        <td>{{item.dept|uppercase}}</td>
-        <td>{{item.college|uppercase}}</td>
-        <td>{{item.locality|uppercase}}</td>
-        <td><button class="btn btn-danger" (click)="remov(item.key)" >Delete</button></td>
-      </tr>
-      <tr >
-        <th  colspan="8"><div  class="pagnum"><pagination-controls (pageChange)="p=$event"></pagination-controls></div></th>
-        </tr>
-    </table>
-  
-  </div>
-</div>
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

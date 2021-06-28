@@ -1,0 +1,7 @@
+<form class="formsty" [formGroup]="formtemp"  (submit)="upload(formtemp.value)" >
+    <img [src]="imgSrc" height="200px" width="250px" (click)="fileUploader.click()">
+    <input type="file" class="form-control" #fileUploader formControlName="imageUrl" (change)="showpreview($event)">
+    <input class="btn btn-success" type="submit">
+
+</form>
+

@@ -1,0 +1,21 @@
+<form class="form" >
+    <div class="imgcontainer">
+        <i class="fas fa-user"></i>
+    </div>
+  
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname"  #emailSignup required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" #passwordSignup required>
+          
+      <button type="submit" (click)="onSignup(emailSignup.value,passwordSignup.value)">Signup</button>
+      
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn" [disabled]="enablebtn" [routerLink]="['/login']">Login</button>
+     
+    </div> 
+  </form>

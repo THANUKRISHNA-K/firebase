@@ -9,6 +9,24 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NgxPaginationModule} from 'ngx-pagination';
+import { RouterModule,Routes} from '@angular/router';
+import { UpanddownComponent } from './upanddown/upanddown.component';
+import { ImagesComponent } from './images/images.component';
+import { ImageComponent } from './image/image.component';
+import { ImageListComponent } from './image-list/image-list.component';
+import { ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+
+const routes:Routes=[
+  {path:'',redirectTo:'login',pathMatch:'full'},
+  {path:"login",component:LoginComponent},
+  {path:"signup",component:SignupComponent},
+  {path:"home",component:ImagesComponent,children:[
+    {path:"upload",component:ImageComponent},
+    {path:"gallery",component:ImageListComponent},
+    {path:"data",component:UpanddownComponent}
+  ]}]
 
 var firebaseConfig = {
   apiKey: "AIzaSyCiCM_psh9M79s5_pV8WDdLoh4xlvH0goA",
@@ -22,7 +40,13 @@ var firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UpanddownComponent,
+    ImagesComponent,
+    ImageComponent,
+    ImageListComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +57,9 @@ var firebaseConfig = {
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
-    NgxPaginationModule
+    NgxPaginationModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

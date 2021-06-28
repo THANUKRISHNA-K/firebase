@@ -1,0 +1,54 @@
+@mixin flex(){
+    display:flex;
+}
+.nav{
+    background-color: rgb(223, 223, 223);
+    height: 50px;
+    align-items: center;
+}
+.nav a{
+color: #0077ff;
+font-size: 25px;
+margin-left: 10px;
+}
+.main{
+    @include flex();
+}
+.sidenavn{
+    width: 20%;
+    height: 742px;
+    background: linear-gradient(to top,rgb(1, 186, 219),rgb(0, 132, 255))
+}
+.form-control{
+    width: 250px;
+    margin: 20px auto;
+}
+.btn{
+    width: 250px;
+    margin-left:25px;
+}
+.maincon{
+    width: 80%;
+}
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 9px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: left;
+    background-color: rgb(0, 132, 255);
+    color: white;
+  }
