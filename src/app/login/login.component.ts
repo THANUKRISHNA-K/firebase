@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebasesignupService } from '../firebasesignup.service';
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { OauthenService } from '../shared/oauthen.service';
 
 
 @Component({
@@ -10,7 +12,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   isSignedIn = false;
-  constructor(private router:Router , public firebaseService:FirebasesignupService) { }
+  constructor(private oauthservice:OauthenService,private router:Router , public firebaseService:FirebasesignupService, private auth:AuthService) { 
+
+  }
 
   ngOnInit(): void {
     if(localStorage.getItem('user')!== null){
@@ -25,7 +29,14 @@ export class LoginComponent implements OnInit {
     await this.firebaseService.signin(email,password)
     if(this.firebaseService.isLoggedIn)
     this.isSignedIn = true;
-    this.router.navigate(['/home/upload']);
+    this.router.navigate(['/home/gallery']);
+    this.auth.setLoggedIn(true);
+  }
+  loginwithgoogle(){
+    this.oauthservice.loginwithGoogle();
+  }
+  loginwithfb(){
+    this.oauthservice.loginwithFb();
   }
 
 }

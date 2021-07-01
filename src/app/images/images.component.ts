@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService} from '../shared.service';
 import { ActivatedRoute,Router} from '@angular/router'
 import { FirebasesignupService } from '../firebasesignup.service';
+import { AuthService } from '../auth.service';
+import { OauthenService } from '../shared/oauthen.service';
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
@@ -9,7 +11,7 @@ import { FirebasesignupService } from '../firebasesignup.service';
 })
 export class ImagesComponent implements OnInit {
 
-  constructor(private service:SharedService, private route:ActivatedRoute, private router:Router, private firebaseService:FirebasesignupService) { }
+  constructor(private oauth:OauthenService,private auth:AuthService ,private service:SharedService, private route:ActivatedRoute, private router:Router, private firebaseService:FirebasesignupService) { }
 
   ngOnInit(): void {
   this.service.getImageDetailList();
@@ -24,9 +26,19 @@ data(){
   this.router.navigate(['data'],{relativeTo:this.route});
 }
 logout(){
-  this.firebaseService.logout;
-  this.router.navigate(['login']);
+  // this.firebaseService.logout;
+  this.oauth.signOut();
 
+}
+
+canDeactivate(){
+  return new Promise((resolve, reject) => {
+
+    resolve(confirm('Do you want to Logout?')),this.auth.setLoggedIn(false),
+    alert("Loggedout Successfully");
+  
+    
+  })
 }
 
 }

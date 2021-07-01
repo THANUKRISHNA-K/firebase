@@ -17,17 +17,28 @@ import { ImageListComponent } from './image-list/image-list.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { TestCanActivate,TestCanDeactivate} from '../guards';
 
 const routes:Routes=[
   {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:"login",component:LoginComponent},
-  {path:"signup",component:SignupComponent},
-  {path:"home",component:ImagesComponent,children:[
+  {path:"login",component:LoginComponent },
+  {path:"signup",component:SignupComponent },
+  {path:"home",component:ImagesComponent,canActivate:[TestCanActivate],canDeactivate: [TestCanDeactivate],children:[
     {path:"upload",component:ImageComponent},
     {path:"gallery",component:ImageListComponent},
     {path:"data",component:UpanddownComponent}
   ]}]
-
+  // Srikrishna
+  // var firebaseConfig = {
+  //   apiKey: "AIzaSyAVyawKSLQ2K7Sc84liEERd3XpQfh4_5GI",
+  //   authDomain: "simpledb-e21aa.firebaseapp.com",
+  //   databaseURL: "https://simpledb-e21aa-default-rtdb.firebaseio.com",
+  //   projectId: "simpledb-e21aa",
+  //   storageBucket: "simpledb-e21aa.appspot.com",
+  //   messagingSenderId: "187379523045",
+  //   appId: "1:187379523045:web:e349a94e7ea4cca610630c",
+  //   measurementId: "G-N46TLM8H82"
+  // };
 var firebaseConfig = {
   apiKey: "AIzaSyCiCM_psh9M79s5_pV8WDdLoh4xlvH0goA",
   authDomain: "sample-d8234.firebaseapp.com",

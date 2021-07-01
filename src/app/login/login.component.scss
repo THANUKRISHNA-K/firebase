@@ -11,7 +11,7 @@ input[type=text], input[type=password] {
 }
 
 .form{
-    margin: 100px auto;
+    margin: 50px auto;
     width: 420px;
 }
 button {
@@ -29,8 +29,7 @@ button:hover {
 }
 
 .cancelbtn {
-  width: auto;
-  padding: 10px 18px;
+  
   background-color: #f44336;
 }
 
@@ -67,3 +66,13 @@ span.psw {
 i{
     font-size: 75px;
 }
+.fbbtn{
+background:linear-gradient(25deg,rgb(0, 140, 255),rgb(0, 110, 255));
+color: white;
+font-weight: 500;
+}
+.gbtn{
+  background:linear-gradient(25deg,rgb(255, 255, 255),rgb(243, 243, 243),rgb(255, 255, 255));
+  color: rgb(0, 0, 0);
+  font-weight:500;
+  }
